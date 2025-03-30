@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chai aur Code | DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+  <ul class="language">
+    <li>Javascript</li>
+  </ul>
+</body>
+<script>
+  function addlanguage(langName){
+    const li = document.createElement('li');
+    li.innerHTML = `${langName}`
+    document.querySelector('.language').appendChild(li)
+  }
+  addlanguage("python")
+  addlanguage("typescript")  // tree traverse here alot so its not optimized
+
+  function addOptiLanguage(langName){
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(langName))
+    document.querySelector('.language').appendChild(li) 
+    // this is more optimized way to add in list since in this way we do not transverse & do it by creating li 
+    // so we prefer using appendChild than innerHTML for optimized code
+  }
+  addOptiLanguage('golang')
+
+  //edit
+  document.querySelector("li: nth-child(2)")
+  // secondLang.innerHTML = "mojo"
+  const newli = document.createElement('li')
+  newli.textContent = "mojo" //similar to innerhtml
+  secondLang.replaceWith(newli)// another way
+
+  //edit (changing 1st element)
+  const firstLang = document.querySelector("li:first-child")
+  firstLang.outerHTML = '<li>Typescript</li>'
+
+  //remove
+  const lastLang = document.querySelector('li:last-child')
+  lastLang.remove()
+</script>
+</html>
