@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Html Events</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body stytle ="background-color: lightblue;">
+  <h2>Amazing Images</h2>
+  <div>
+    <ul id="Images">
+      <li><img width = "200px" id="Road" src = "./1pic.jpg" alt= "Road"></li>
+      <li><img width = "200px" id="Space" src = "./2pic.jpg" alt= "Space"></li>
+      <li><img width = "200px" id="Moon" src = "./3pic.jpg" alt= "Moon"></li>
+      <li><img width = "200px" id="Flower" src = "./4pic.jpg" alt= "Flower"></li>
+      <li><a class="google-link" href="www.google.com" id="google">google</a></li>
+    </ul>
+  </div>
+  <script>
+    // document.getElementById('Road').onclick = function(){
+    //   alert("this is a road image");
+    // } // INSTEAD USE EVENT LISTENER FOR BETTER CODE 
+    
+    // type , timestamp , deafaultPrevented 
+    // target , toElement , currentTarget , eventPhase
+    //interview -- clientX, clientY , screenX ,   screenY
+    // altKey , ctrlKey , metaKey , shiftKey, keycode
+
+    // Document.GetElementById('images').addEventListener('click', function(e){
+    //   //alert("this is a road image");
+    //   console.log("clicked inside the ul tag");
+    // },false); 
+    // Document.GetElementById('Road').addEventListener('click', function(e){
+      
+    //   console.log("road image clicked");
+    // },false);
+    // // false means 
+    // // event propagation happens from inside to outside just like bubbling
+    // // true means event propagation happens from outside to inside called as capturing event 
+    // // default is false
+    // e.stopPropagation(); // this will stop the event from bubbling up to the parent element
+    //  document.getElementById('google').addEventListener('click',function{
+    //   e.preventDefault(); // this will stop the default action of the event from happening
+    //  e.stopPropagation(); // this will stop the event from bubbling up to the parent element
+    //   console.log("google link clicked");
+    // },false);
+    
+    document.querySelector('#Images').addEventListener('click', function(e){
+      console.log(e.target.tagName); // this will give the name of the tag that was clicked
+      if(e.target.tagname === 'IMG'){
+        console.log(e.target.id); // this will give the id of the image that was clicked
+        let removeIt = e.target.parentNode;
+        removeIt.remove(); //(easy)
+      }
+
+       
+      // removeIt.parentNode.removeChild(removeIt);
+       });
+  </script>
+  
+</body>
+</html>
