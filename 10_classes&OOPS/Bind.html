@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React</title>
+</head>
+<body>
+    <button>Button clicked</button>
+</body>
+<script>
+    class React {
+      constructor(){
+        this.library = "React"
+        this.server = "http://localhost:300"
+       
+        //requirement 
+        document.querySelector('button').addEventListener('click',this.handleClick.bind(this))
+        // Without the bind method, an event listener only has access to the context (or this) of the element that
+        // triggers the event (like a button in this case).So, in your example, the handleClick event listener only
+        //has the button's context (this refers to the button itself). Using the bind method, we can set the this 
+        // context to a different object, allowing us to access the context where the event listener was created, 
+        // not just the button's context."
+      // saare this ka access de deta h 
+
+      }
+      handleClick(){
+        console.log("button clicked");
+        console.log(this.server);
+      }
+    }
+
+    const app = new React()
+</script>
+</html>

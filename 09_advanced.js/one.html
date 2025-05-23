@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style = "background-color: #212121;">
+  <div class="card">
+    <img src="img_avatar.png" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4>John Doe</h4>
+      <p>Architect & Engineer</p>
+    </div>a
+  </div>
+  
+  1 (OPENED) – open() has been called, but not send().
+
+  2 (HEADERS_RECEIVED) – send() has been called, and headers are received.
+  
+  3 (LOADING) – Response is being downloaded; responseText holds partial data.
+  
+  4 (DONE) – Request is complete and response is fully received.
+  
+
+</body>
+<script>
+  const requesturl = 'https://api.github.com/users/hiteshchaudhary/';
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', requesturl,true);
+  xhr.onreadystatechange = function(){
+    console.log(xhr.readyState);
+    if(xhr.readyState === 4){
+      const data = JSON.parse(this.responseText)
+      console.log(typeof data);
+      console.log(data.followers);  
+    }
+    document.getElementById('Result').innerHTML = 
+    `<p>user:${data.name}</p>
+     <p>followers:${data.followers}</p>
+     <p>following:${data.following}</p>
+     `
+  }
+ xhr.send();
+</script>
+</html>
